@@ -20,9 +20,9 @@ class _HomeState extends State<Home> {
             decoration: BoxDecoration(
               gradient:LinearGradient(
                   colors:[
-                    Colors.white60,
+                    Colors.white70,
                     Colors.yellowAccent.shade100,
-                    Colors.orangeAccent.shade100
+                    Colors.orangeAccent.shade200
                   ]
               )
             ),
