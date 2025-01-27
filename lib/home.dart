@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
                   colors:[
                     Colors.white60,
                     Colors.yellowAccent.shade100,
-                    Colors.orangeAccent.shade200
+                    Colors.orangeAccent.shade100
                   ]
               )
             ),
