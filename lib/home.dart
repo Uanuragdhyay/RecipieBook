@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:recipiebook/model.dart';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -12,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<RecipeModel> recipeList = <RecipeModel>[];
   TextEditingController searchController = new TextEditingController();
 
   getRecipe( String query) async
@@ -19,7 +21,18 @@ class _HomeState extends State<Home> {
     String url = "https://api.edamam.com/search?q=$query&app_id=2eeffef2&app_key=a22a4be89733fe993fa6c5ad8ed8f0df&from=0&to=3&calories=591-722&health=alcohol-free";
     Response response = await get(Uri.parse(url));
     Map data= jsonDecode(response.body);
-    log(data.toString());
+   // log(data.toString());
+
+    data["hits"].forEach((element){
+      RecipeModel recipeModel = new RecipeModel();
+      recipeModel = RecipeModel.fromMap(element['recipe']);
+      recipeList.add(recipeModel);
+      log(recipeList.toString());
+    });
+    recipeList.forEach((Recipe){
+      print(Recipe.applabel);
+      print(Recipe.Calories);
+    });
   }
 
   @override
