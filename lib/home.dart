@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class Home extends StatefulWidget {
 
@@ -9,6 +12,22 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   TextEditingController searchController = new TextEditingController();
+
+  getRecipe( String query) async
+  {
+    String url = "https://api.edamam.com/search?q=$query&app_id=2eeffef2&app_key=a22a4be89733fe993fa6c5ad8ed8f0df&from=0&to=3&calories=591-722&health=alcohol-free";
+    Response response = await get(Uri.parse(url));
+    Map data= jsonDecode(response.body);
+    print(response.body);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getRecipe("ladoo");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +67,8 @@ class _HomeState extends State<Home> {
                         {
                           print("Blank search");
                         }else{
-                          Navigator.pushReplacementNamed(context, "/loading",arguments: {
-                            "searchText" : searchController.text,
-                          });
+                          getRecipe(searchController.text);
                         }
-
                       },
                       child: Container(
                         child: Icon(
@@ -78,7 +94,7 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("What you want to cook today ?",style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold,color: Colors.black),),
+                  Text("What you want to cook today ?",style: TextStyle(fontSize: 40,fontWeight: FontWeight.w800,color: Colors.black),),
                   SizedBox(height: 12,),
                   Text("Let's cook something new !!" , style: TextStyle(fontSize: 25,color: Colors.grey.shade900),)
                 ],
