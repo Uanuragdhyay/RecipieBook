@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -18,7 +19,7 @@ class _HomeState extends State<Home> {
     String url = "https://api.edamam.com/search?q=$query&app_id=2eeffef2&app_key=a22a4be89733fe993fa6c5ad8ed8f0df&from=0&to=3&calories=591-722&health=alcohol-free";
     Response response = await get(Uri.parse(url));
     Map data= jsonDecode(response.body);
-    print(response.body);
+    log(data.toString());
   }
 
   @override
