@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:recipiebook/RecipeView.dart';
 import 'package:recipiebook/model.dart';
 
 import 'package:flutter/material.dart';
@@ -151,7 +152,9 @@ class _SearchState extends State<Search> {
                           itemCount: recipeList.length,
                           itemBuilder: (context, index) {
                             return InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> RecipeView(recipeList[index].appurl)));
+                              },
                               child: Card(
                                 margin: EdgeInsets.all(10),
                                 shape: RoundedRectangleBorder(
