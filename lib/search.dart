@@ -83,10 +83,10 @@ class _HomeState extends State<Home> {
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
-              Colors.white70,
-              Colors.yellowAccent.shade100,
-              Colors.orangeAccent.shade200
-            ])),
+                  Colors.white70,
+                  Colors.yellowAccent.shade100,
+                  Colors.orangeAccent.shade200
+                ])),
           ),
           SingleChildScrollView(
             child: Column(
@@ -177,7 +177,7 @@ class _HomeState extends State<Home> {
                                   bottom: 0,
                                   child: Container(
                                     decoration:
-                                        BoxDecoration(color: Colors.black38),
+                                    BoxDecoration(color: Colors.black38),
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 5, vertical: 10),
                                     child: Text(
@@ -200,7 +200,7 @@ class _HomeState extends State<Home> {
                                     child: Center(
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         children: [
                                           Icon(
                                             Icons.local_fire_department,
@@ -235,49 +235,49 @@ class _HomeState extends State<Home> {
                       itemBuilder: (context, index) {
                         return Container(
                             child: InkWell(
-                          onTap: () {},
-                          child: Card(
-                              margin: EdgeInsets.all(20),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              elevation: 0.0,
-                              child: Stack(
-                                children: [
-                                  ClipRRect(
-                                      borderRadius: BorderRadius.circular(40.0),
-                                      child: Image.network(
-                                        reciptCatList[index]["imgUrl"],
-                                        fit: BoxFit.cover,
-                                        width: 200,
-                                        height: 200,
-                                      )),
-                                  Positioned(
-                                      left: 0,
-                                      right: 0,
-                                      bottom: 0,
-                                      top: 0,
-                                      child: Container(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 5, horizontal: 10),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(40),
-                                              color: Colors.black26),
-                                          child: Column(
-                                            mainAxisAlignment:
+                              onTap: () {},
+                              child: Card(
+                                  margin: EdgeInsets.all(20),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  ),
+                                  elevation: 0.0,
+                                  child: Stack(
+                                    children: [
+                                      ClipRRect(
+                                          borderRadius: BorderRadius.circular(40.0),
+                                          child: Image.network(
+                                            reciptCatList[index]["imgUrl"],
+                                            fit: BoxFit.cover,
+                                            width: 200,
+                                            height: 200,
+                                          )),
+                                      Positioned(
+                                          left: 0,
+                                          right: 0,
+                                          bottom: 0,
+                                          top: 0,
+                                          child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 5, horizontal: 10),
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(40),
+                                                  color: Colors.black26),
+                                              child: Column(
+                                                mainAxisAlignment:
                                                 MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                reciptCatList[index]["heading"],
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 28),
-                                              ),
-                                            ],
-                                          ))),
-                                ],
-                              )),
-                        ));
+                                                children: [
+                                                  Text(
+                                                    reciptCatList[index]["heading"],
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 28),
+                                                  ),
+                                                ],
+                                              ))),
+                                    ],
+                                  )),
+                            ));
                       }),
                 )
               ],
