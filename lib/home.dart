@@ -4,6 +4,7 @@ import 'package:recipiebook/model.dart';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:recipiebook/search.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -66,12 +67,12 @@ class _HomeState extends State<Home> {
     });
   }
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   getRecipe("ladoo");
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getRecipe("ladoo");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +110,7 @@ class _HomeState extends State<Home> {
                                 "") {
                               print("Blank search");
                             } else {
-                              getRecipe(searchController.text);
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Search(searchController.text)));
                             }
                           },
                           child: Container(
@@ -148,7 +149,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                  child: isLoading ? CircularProgressIndicator() : ListView.builder(
+                  child: isLoading ? Center(child: CircularProgressIndicator()) : ListView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: recipeList.length,
@@ -207,13 +208,10 @@ class _HomeState extends State<Home> {
                                             size: 16,
                                           ),
                                           Text(
-                                            recipeList[index]
-                                                .Calories
-                                                .toString()
-                                                .substring(0, 6),
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                            ),
+                                            recipeList[index].Calories.toString().length > 7
+                                                ? recipeList[index].Calories.toString().substring(0, 7)
+                                                : recipeList[index].Calories.toString(),
+                                            style: TextStyle(color: Colors.black),
                                           ),
                                         ],
                                       ),
