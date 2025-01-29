@@ -13,10 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'RecipieBook',
       theme: ThemeData(
        primarySwatch: Colors.red,
-        fontFamily: "Ubuntu",
       ),
       home: Home(),
     );
