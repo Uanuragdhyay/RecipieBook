@@ -236,7 +236,9 @@ class _HomeState extends State<Home> {
                       itemBuilder: (context, index) {
                         return Container(
                             child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Search(reciptCatList[index]["heading"])));
+                          },
                           child: Card(
                               margin: EdgeInsets.all(20),
                               shape: RoundedRectangleBorder(
