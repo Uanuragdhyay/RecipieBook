@@ -31,7 +31,7 @@ class _RecipeViewState extends State<RecipeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Food Recipe App"),
+        title: const Text("Here is your recipie "),
       ),
       body: WebViewWidget(controller: _controller),
     );
